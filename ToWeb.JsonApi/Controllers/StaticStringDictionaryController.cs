@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Microsoft.Ajax.Utilities;
 
 namespace ToWeb.JsonApi.Controllers
 {
@@ -18,19 +19,23 @@ namespace ToWeb.JsonApi.Controllers
             return _store;
         }
 
-        public void Post(Guid id, string json)
+        public string Post(Guid key, string record)
         {
-            _store.Add(id, json);
-        }
+            if (!_store.ContainsKey(key))
+            {
+                _store.Add(key, record);
+            }
+            else
+            {
+                _store[key] = record;
+            }
 
-        public void Put(Guid id, string json)
-        {
-            _store.Add(id, json);
+            return record;
         }
         
-        public void Delete(Guid id)
+        public void Delete(Guid key)
         {
-            _store.Remove(id);
+            _store.Remove(key);
         }
 
         private static Dictionary<Guid, string> _store = new Dictionary<Guid, string>();
