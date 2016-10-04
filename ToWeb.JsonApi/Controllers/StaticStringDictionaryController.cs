@@ -21,18 +21,18 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpPost]
-        public string Post(Guid key, string record)
+        public string Post(Container container)
         {
-            if (!_store.ContainsKey(key))
+            if (!_store.ContainsKey(container.Key))
             {
-                _store.Add(key, record);
+                _store.Add(container.Key, container.Record);
             }
             else
             {
-                _store[key] = record;
+                _store[container.Key] = container.Record;
             }
 
-            return record;
+            return container.Record;
         }
         
         [HttpDelete]
@@ -42,5 +42,11 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         private static Dictionary<Guid, string> _store = new Dictionary<Guid, string>();
+    }
+
+    public class Container
+    {
+        public Guid Key { get; set; }
+        public string Record { get; set; }
     }
 }
