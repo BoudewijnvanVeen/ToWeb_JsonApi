@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ToWeb.JsonApi
 {
@@ -6,8 +7,8 @@ namespace ToWeb.JsonApi
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-            config.EnableCors();
+            // Enable Cors
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -15,7 +16,7 @@ namespace ToWeb.JsonApi
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new  { controller= " OneStaticString", id = RouteParameter.Optional }
+                defaults: new  { controller=" OneStaticString", id = RouteParameter.Optional }
             );
         }
     }

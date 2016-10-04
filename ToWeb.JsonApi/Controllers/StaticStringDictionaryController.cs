@@ -14,11 +14,13 @@ namespace ToWeb.JsonApi.Controllers
             return _store.FirstOrDefault(c => c.Key.Equals(id)).Value;
         }
 
+        [HttpGet]
         public Dictionary<Guid, string> GetAll()
         {
             return _store;
         }
 
+        [HttpPost]
         public string Post(Guid key, string record)
         {
             if (!_store.ContainsKey(key))
@@ -33,6 +35,7 @@ namespace ToWeb.JsonApi.Controllers
             return record;
         }
         
+        [HttpDelete]
         public void Delete(Guid key)
         {
             _store.Remove(key);
