@@ -141,6 +141,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Model\DataAnnotationsValidator.cs" />
+    <Compile Include="Model\ErrorContainer.cs" />
+    <Compile Include="Model\JsonContainer.cs" />
+    <Compile Include="Model\PocoContainer.cs" />
+    <Compile Include="Model\Poco.cs" />
+    <Compile Include="Controllers\PocoController.cs" />
     <Compile Include="Controllers\StaticStringDictionaryController.cs" />
     <Compile Include="Controllers\StaticStringController.cs" />
     <Compile Include="Global.asax.cs">
