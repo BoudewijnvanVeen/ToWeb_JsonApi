@@ -23,18 +23,18 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpPost]
-        public string Post(JsonContainer container)
+        public string Post(Json container)
         {
             if (!_store.ContainsKey(container.Key))
             {
-                _store.Add(container.Key, container.Record);
+                _store.Add(container.Key, container.JsonString);
             }
             else
             {
-                _store[container.Key] = container.Record;
+                _store[container.Key] = container.JsonString;
             }
 
-            return container.Record;
+            return container.JsonString;
         }
 
         [HttpDelete]

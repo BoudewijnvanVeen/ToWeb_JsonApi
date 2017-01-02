@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using System.Web.Mvc;
 
 namespace ToWeb.JsonApi
 {
@@ -8,7 +7,6 @@ namespace ToWeb.JsonApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }

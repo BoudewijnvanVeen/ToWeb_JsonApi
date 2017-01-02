@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ToWeb.JsonApi.Model
+namespace ToWeb.JsonApi
 {
     public static class DataAnnotationsValidator
     {
@@ -12,5 +12,12 @@ namespace ToWeb.JsonApi.Model
             Validator.TryValidateObject(@object, context, results);
             return results;
         }
+    }
+
+    public enum ECrudAction
+    {
+        Undefined = 0,
+        Insert = 1,
+        Update = 2
     }
 }
