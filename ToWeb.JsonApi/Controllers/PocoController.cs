@@ -14,7 +14,7 @@ namespace ToWeb.JsonApi.Controllers
         public static readonly Dictionary<Guid, Poco> Store = new Dictionary<Guid, Poco>();
         
         [HttpGet]
-        [Route("api/ById")]
+        [Route("api/GetBy/{key}")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Poco))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
@@ -31,12 +31,12 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/All")]
+        [Route("api/Get")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<Poco>))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public List<Poco> GetAll()
+        public List<Poco> Get()
         {
             return Store.Values.ToList();
         }
