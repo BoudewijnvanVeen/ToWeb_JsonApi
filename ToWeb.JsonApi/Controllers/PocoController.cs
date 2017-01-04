@@ -9,12 +9,13 @@ using ToWeb.JsonApi.Model;
 
 namespace ToWeb.JsonApi.Controllers
 {
+    [RoutePrefix("api/Poco")]
     public class StaticPocoDictionaryController : ApiController
     {
         public static readonly Dictionary<Guid, Poco> Store = new Dictionary<Guid, Poco>();
         
         [HttpGet]
-        [Route("api/GetBy/{key}")]
+        [Route("GetBy/{key}")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Poco))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
@@ -31,7 +32,7 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/Get")]
+        [Route("")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<Poco>))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
@@ -42,7 +43,7 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpPost]
-        [Route("api/Post")]
+        [Route("")]
         [SwaggerResponse(HttpStatusCode.Created, Type = typeof(Poco))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
@@ -62,7 +63,7 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpPut]
-        [Route("api/Put")]
+        [Route("")]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(Poco))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest)]
@@ -82,7 +83,7 @@ namespace ToWeb.JsonApi.Controllers
         }
 
         [HttpDelete]
-        [Route("api/Delete")]
+        [Route("")]
         public void Delete(Guid key)
         {
             Store.Remove(key);
