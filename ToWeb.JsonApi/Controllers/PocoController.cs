@@ -54,8 +54,7 @@ namespace ToWeb.JsonApi.Controllers
 
             if (!modelState.IsValid) return BadRequest(modelState);
 
-            if (Store.ContainsKey(poco.Key))
-                return BadRequest("Duplicate Key");
+            poco.Key = Guid.NewGuid();
 
             Store.Add(poco.Key, poco);
 

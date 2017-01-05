@@ -54,7 +54,7 @@ namespace ToWeb.JsonApi.Model
             // Only validated on action Insert
             RuleSet("Insert", () =>
             {
-                RuleFor(poco => poco.Key).NotEmpty().WithMessage("Key is empty");
+                RuleFor(poco => poco.Key).Empty().WithMessage("Key is not empty");
             });
         }
     }
